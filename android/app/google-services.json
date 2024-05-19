@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "402581280962",
+    "project_id": "budgetmate-e8e34",
+    "storage_bucket": "budgetmate-e8e34.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402581280962:android:7db60630dddaceeb8ac35b",
+        "android_client_info": {
+          "package_name": "com.example.budgetmate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4orEmfrRZkgYD75iVieN767RTTsp4B1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
