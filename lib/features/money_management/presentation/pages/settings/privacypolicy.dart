@@ -29,12 +29,12 @@ class PrivacyPolicyScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Welcome to Financia, your personal money manager application! This Privacy Policy outlines how Financia collects, uses, and protects your personal information. By using Financia, you agree to the terms outlined in this policy.',
+              'Welcome to BudgetMate, your personal money manager application! This Privacy Policy outlines how Financia collects, uses, and protects your personal information. By using BudgetMate, you agree to the terms outlined in this policy.',
             ),
             SizedBox(height: 16),
             _buildPrivacyPolicyItem(
               'Information We Collect',
-              'Financial Data: Financia collects and stores the financial data you input into the application, including income, expenses, and related details.',
+              'Financial Data: BudgetMate collects and stores the financial data you input into the application, including income, expenses, and related details.',
             ),
             _buildPrivacyPolicyItem(
               'How We Use Your Information',
@@ -42,11 +42,11 @@ class PrivacyPolicyScreen extends StatelessWidget {
             ),
             _buildPrivacyPolicyItem(
               'Data Security',
-              'Encryption: Financia employs industry-standard encryption and security measures to protect your financial data from unauthorized access.',
+              'Encryption: BudgetMate employs industry-standard encryption and security measures to protect your financial data from unauthorized access.',
             ),
             _buildPrivacyPolicyItem(
               'Data Sharing',
-              'Third Parties: Financia does not share your personal financial data with third parties.',
+              'Third Parties: BudgetMate does not share your personal financial data with third parties.',
             ),
             _buildPrivacyPolicyItem(
               'Application Updates',
@@ -70,7 +70,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'By using Financia, you acknowledge that you have read, understood, and agree to this Privacy Policy.',
+              'By using BudgetMate, you acknowledge that you have read, understood, and agree to this Privacy Policy.',
             ),
           ],
         ),

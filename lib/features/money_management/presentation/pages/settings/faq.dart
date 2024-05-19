@@ -14,15 +14,15 @@ class FAQsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildFAQItem(
-              'What is Financia, and how does it work?',
-              'Financia is a personal money management application that helps you track your income and expenses. It allows you to input your financial data, view insightful charts, and gain a better understanding of your spending habits.',
+              'What is BudgetMate, and how does it work?',
+              'BudgetMate is a personal money management application that helps you track your income and expenses. It allows you to input your financial data, view insightful charts, and gain a better understanding of your spending habits.',
             ),
             _buildFAQItem(
-              'Is Financia free to use?',
-              'Yes, Financia is free to download and use. There are no subscription fees or hidden charges.',
+              'Is BudgetMate free to use?',
+              'Yes, BudgetMate is free to download and use. There are no subscription fees or hidden charges.',
             ),
             _buildFAQItem(
-              'How do I add my income and expenses to Financia?',
+              'How do I add my income and expenses to BudgetMate?',
               'To add an income or expense, go to the "Add" page, choose the category, enter the amount, and provide additional details if needed. Save the entry to update your financial records.',
             ),
             _buildFAQItem(
@@ -31,11 +31,11 @@ class FAQsScreen extends StatelessWidget {
             ),
             _buildFAQItem(
               'How secure is my financial data in Financia?',
-              'Financia uses industry-standard encryption and security measures to protect your financial data. Your data is stored securely, and access is restricted to ensure confidentiality.',
+              'BudgetMate uses industry-standard encryption and security measures to protect your financial data. Your data is stored securely, and access is restricted to ensure confidentiality.',
             ),
             _buildFAQItem(
               'Are there different views to analyze my financial data?',
-              'Yes, Financia provides weekly, monthly, daily, and yearly views. Navigate to these pages to get a detailed breakdown of your financial activities for different time frames.',
+              'Yes, BudgetMate provides weekly, monthly, daily, and yearly views. Navigate to these pages to get a detailed breakdown of your financial activities for different time frames.',
             ),
             _buildFAQItem(
               'Can I customize my app experience?',
@@ -51,7 +51,7 @@ class FAQsScreen extends StatelessWidget {
             ),
             _buildFAQItem(
               'What happens if I forget my password?',
-              'Financia does not require a password since it doesn\'t have user accounts. You don\'t need to worry about forgetting a password.',
+              'BudgetMate does not require a password since it doesn\'t have user accounts. You don\'t need to worry about forgetting a password.',
             ),
             _buildFAQItem(
               'How often should I update the app?',

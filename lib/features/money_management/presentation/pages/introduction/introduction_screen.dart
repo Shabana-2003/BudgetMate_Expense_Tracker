@@ -12,18 +12,18 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   final List<IntroductionItem> _introductionItems = [
     IntroductionItem(
       image: 'assets/images/image11.jpeg',
-      title: 'Welcome to CashCraft',
+      title: 'Welcome to BudgetMate',
       description:
           'Your one-stop financial hub for managing, tracking, and growing your money.',
     ),
     IntroductionItem(
       image: 'assets/images/image22.jpeg',
-      title: 'Join CashCraft',
-      description: 'With CashCraft, financial empowerme is at your fingertips.',
+      title: 'Join BudgetMate',
+      description: 'With BudgetMate, financial empowerme is at your fingertips.',
     ),
     IntroductionItem(
       image: 'assets/images/image33.jpeg',
-      title: 'Explore CashCraft',
+      title: 'Explore BudgetMate',
       description:
           'Are you ready to take charge of your financial future? increasing your financial assets.',
     ),

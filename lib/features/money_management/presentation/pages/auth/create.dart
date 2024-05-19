@@ -16,7 +16,7 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-   final _auth = AuthService();
+  final _auth = AuthService();
 
   final _name = TextEditingController();
   final _email = TextEditingController();
@@ -29,7 +29,6 @@ class _SignupScreenState extends State<SignupScreen> {
     _email.dispose();
     _password.dispose();
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +36,18 @@ class _SignupScreenState extends State<SignupScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image
-
-          
           SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 200), // Adjust the height as needed
+                SizedBox(height: 150), // Adjust the height as needed
                 Text(
-                  'JOIN BROWNCART NOW',
+                  'JOIN BUDGETMATE NOW',
                   style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w100,
-                      color: const Color.fromARGB(255, 0, 0, 0),
-                      fontFamily: "Gruppo-Regular"),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                  ),
                 ),
                 SizedBox(height: 50),
                 Form(
@@ -64,17 +60,6 @@ class _SignupScreenState extends State<SignupScreen> {
                           controller: _name,
                           decoration: InputDecoration(
                             labelText: 'Name',
-                            labelStyle: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontFamily: "Gruppo-Regular"),
-                            // Only show underline without any border box
-                            border: InputBorder.none,
-                            filled: true, // Add background color
-                            fillColor:
-                                Color.fromARGB(255, 0, 0, 0).withOpacity(0.2),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: const Color.fromARGB(255, 0, 0, 0)),
-                            ),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -82,120 +67,92 @@ class _SignupScreenState extends State<SignupScreen> {
                             }
                             return null;
                           },
-                          obscureText: true,
-                          style: TextStyle(
-                              color: const Color.fromARGB(255, 0, 0, 0),
-                              fontFamily: "Gruppo-Regular"),
                         ),
                       ),
-                      SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: TextFormField(
                           controller: _email,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Email',
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: const Color.fromARGB(255, 0, 0, 0)),
-                            ),
-                            labelStyle: TextStyle(
-                                color: Colors.white,
-                                fontFamily: "Gruppo-Regular"),
-
-                            filled: true, // Add background color
-                            fillColor:
-                                Color.fromARGB(255, 0, 0, 0).withOpacity(0.2),
-                            
                           ),
+                          
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your email';
                             }
-                            // You can add more validation rules here
+
                             return null;
                           },
-                          style: TextStyle(
-                              color: const Color.fromARGB(255, 0, 0, 0),
-                              fontFamily: "Gruppo-Regular"),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: TextFormField(
-                          controller:_password,
-                          decoration: InputDecoration(
+                          controller: _password,
+                          decoration: const InputDecoration(
                             labelText: 'Password',
-                            labelStyle: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontFamily: "Gruppo-Regular"),
-                            // Only show underline without any border box
-                            border: InputBorder.none,
-                            filled: true, // Add background color
-                            fillColor:
-                                Color.fromARGB(255, 0, 0, 0).withOpacity(0.2),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: const Color.fromARGB(255, 0, 0, 0)),
-                            ),
+                            
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your password';
                             }
-                            // You can add more validation rules here
+                        
                             return null;
                           },
                           obscureText: true,
-                          style: TextStyle(
-                              color: const Color.fromARGB(255, 0, 0, 0),
-                              fontFamily: "Gruppo-Regular"),
                         ),
                       ),
-                  
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 85,
                 ),
 
                 ElevatedButton(
-                  onPressed:_signup,
-                 
-                  child:   Container(
-                    child:  Text(
-                      'SIGNUP',
-                      style: TextStyle(
-                          color: const Color.fromARGB(255, 0, 0, 0), fontFamily: "Gruppo-Regular"),
-                    ),),
-                 
+                  onPressed: _signup,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 0, 0, 0)
-                        .withOpacity(0.5), // Set transparent color
+                    backgroundColor: Color.fromARGB(255, 47, 125, 121), 
                     padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
+                  child: const Text(
+                    'SIGNUP',
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontFamily: "Gruppo-Regular"),
+                  ),
                 ),
-                const SizedBox(height: 55),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text("Already have an account? ", style: TextStyle(
-        fontFamily: "Gruppo-Regular",
-        color: Color.fromARGB(255, 204, 204, 204), 
-        fontSize: 15, 
-      ),),
-              InkWell(
-                onTap: () => goToLogin(context),
-                child: const Text("Login",style: TextStyle(
-        fontFamily: "Gruppo-Regular",
-        color: Color.fromARGB(255, 204, 204, 204), 
-        fontSize: 15, 
-      ),),
-              )
-            ]),
-
-                // Add other login components below the text
+                const SizedBox(height: 155),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  const Text(
+                    "Already have an account? ",
+                    style: TextStyle(
+                      fontFamily: "Gruppo-Regular",
+                      color: Color.fromARGB(255, 62, 62, 62),
+                      fontSize: 15,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () => goToLogin(context),
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(
+                        fontFamily: "Gruppo-Regular",
+                        color: Color.fromARGB(255, 59, 59, 247),
+                        fontSize: 15,
+                      ),
+                    ),
+                  )
+                ]),
               ],
             ),
           ),
@@ -203,7 +160,8 @@ class _SignupScreenState extends State<SignupScreen> {
       ),
     );
   }
-    goToLogin(BuildContext context) => Navigator.push(
+
+  goToLogin(BuildContext context) => Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
@@ -214,7 +172,7 @@ class _SignupScreenState extends State<SignupScreen> {
       );
 
   _signup() async {
-        await _auth.createUserWithEmailAndPassword(_email.text, _password.text);
-        Navigator.pop(context);
+    await _auth.createUserWithEmailAndPassword(_email.text, _password.text);
+    Navigator.pop(context);
   }
 }

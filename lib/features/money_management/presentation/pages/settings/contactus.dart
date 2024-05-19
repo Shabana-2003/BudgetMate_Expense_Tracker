@@ -46,7 +46,7 @@ class ContactUsScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'We strive to respond to your inquiries promptly and provide the assistance you need. Thank you for choosing Financia!',
+              'We strive to respond to your inquiries promptly and provide the assistance you need. Thank you for choosing BudgetMate!',
               style: TextStyle(fontSize: 16),
             ),
           ],

@@ -14,7 +14,7 @@ class InstructionalContentScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Welcome to Financia: Your Personal Money Manager!',
+              'Welcome to BudgetMate: Your Personal Money Manager!',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
@@ -22,7 +22,7 @@ class InstructionalContentScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Thank you for choosing Financia to manage your finances. This guide will help you get started with the app and make the most out of its features.',
+              'Thank you for choosing BudgetMate to manage your finances. This guide will help you get started with the app and make the most out of its features.',
             ),
             _buildContentItem(
               'Dashboard Overview',
@@ -62,7 +62,7 @@ class InstructionalContentScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Enjoy Financia!\nThank you for using Financia!',
+              'Enjoy BudgetMate!\nThank you for using BudgetMate!',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,

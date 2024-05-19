@@ -36,24 +36,20 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image
-
-         
-          // Content
           SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 200), // Adjust the height as needed
-                Text(
+                const SizedBox(height: 150), 
+                const Text(
                   'SIGN IN TO YOUR ACCOUNT',
                   style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.bold,
                       color: const Color.fromARGB(255, 0, 0, 0),
-                      fontFamily: "Gruppo-Regular"),
+                      ),
                 ),
-                SizedBox(height: 80),
+                const SizedBox(height: 70),
                 Form(
                   key: _formKey,
                   child: Column(
@@ -62,84 +58,60 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: TextFormField(
                           controller:_email,
-                          decoration: InputDecoration(
-                            labelText: 'Email',
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: const Color.fromARGB(255, 0, 0, 0)),
-                            ),
-                            labelStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0),
-                                fontFamily: "Gruppo-Regular"),
-
-                            filled: true, // Add background color
-                            fillColor:
-                                Color.fromARGB(255, 0, 0, 0).withOpacity(0.2),
-                            // Only show underline without any border box
-                            // border: InputBorder.none,
-                          ),
+                          decoration:const InputDecoration(
+                            labelText: 'Email'),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your email';
                             }
-                            // You can add more validation rules here
+                            
                             return null;
                           },
-                          style: TextStyle(
-                              color: const Color.fromARGB(255, 0, 0, 0),
-                              fontFamily: "Gruppo-Regular"),
+                          
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: TextFormField(
                           controller:_password,
-                          decoration: InputDecoration(
+                          decoration:const InputDecoration(
                             labelText: 'Password',
-                            labelStyle: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontFamily: "Gruppo-Regular"),
-                            // Only show underline without any border box
-                            border: InputBorder.none,
-                            filled: true, // Add background color
-                            fillColor:
-                                Color.fromARGB(255, 0, 0, 0).withOpacity(0.2),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: const Color.fromARGB(255, 0, 0, 0)),
-                            ),
+                            
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your password';
                             }
-                            // You can add more validation rules here
+                           
                             return null;
                           },
                           obscureText: true,
-                          style: TextStyle(
-                              color: const Color.fromARGB(255, 0, 0, 0),
-                              fontFamily: "Gruppo-Regular"),
+                          style:const TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Align(alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ForgotPage()),
-                      );
-                    },
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(
-                          color: const Color.fromARGB(255, 0, 0, 0), fontFamily: "Gruppo-Regular"),
+                
+                Padding(
+                  padding: const EdgeInsets.only(right: 25,top: 25),
+                  child: Align(alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ForgotPage()),
+                        );
+                      },
+                      child:const Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 0, 0, 0), fontFamily: "Gruppo-Regular"),
+                      ),
                     ),
                   ),
                 ),
@@ -152,21 +124,20 @@ class _LoginScreenState extends State<LoginScreen> {
                      child:  Text(
                       'LOGIN',
                       style: TextStyle(
-                          color: const Color.fromARGB(255, 0, 0, 0), fontFamily: "Gruppo-Regular"),
+                          color: Color.fromARGB(255, 255, 255, 255), fontFamily: "Gruppo-Regular"),
                     ),
                     ),
                    
                   
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 0, 0, 0)
-                        .withOpacity(0.5), // Set transparent color
+                    backgroundColor:Color.fromARGB(255, 47, 125, 121), // Set transparent color
                     padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
-                SizedBox(height: 60),
+                SizedBox(height: 50),
                   isLoading?CircularProgressIndicator():GestureDetector(
   onTap: () async {
     setState(() {
@@ -192,18 +163,19 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
   ),
 ),
-
-                GestureDetector(
-                  onTap: () => goToSignup(context),
-                  child: Text(
-                    'Do you need an Account? Register',
-                    style: TextStyle(
-                        color: const Color.fromARGB(255, 0, 0, 0), fontFamily: "Gruppo-Regular"),
+const SizedBox(height: 60,),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: GestureDetector(
+                    onTap: () => goToSignup(context),
+                    child: Text(
+                      'Do you need an Account? Register',
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 0, 0, 0), fontFamily: "Gruppo-Regular"),
+                    ),
                   ),
                 ),
-                SizedBox(height: 10),
-
-                // Add other login components below the text
+                
               ],
             ),
           ),

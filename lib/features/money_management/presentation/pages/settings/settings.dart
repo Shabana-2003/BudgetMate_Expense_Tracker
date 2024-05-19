@@ -113,11 +113,11 @@ class SettingsScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Confirm Delete",
+          title: Text("Sign Out",
               style: TextStyle(color: Color.fromARGB(255, 249, 248, 248))),
           backgroundColor: Color.fromARGB(255, 2, 116, 106),
           content: Text(
-            "Are you sure you want to delete this transaction?",
+            "Are you sure you want to sign out? Signing out will log you out of your account and you'll need to sign in again to access your account.",
             style: TextStyle(color: Color.fromARGB(255, 206, 199, 199)),
           ),
           

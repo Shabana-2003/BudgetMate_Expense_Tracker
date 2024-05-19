@@ -11,11 +11,10 @@ class CustomButton extends StatelessWidget {
         width: 180,
         height: 42,
         child: ElevatedButton(
-            
             onPressed: onPressed,
             child: Text(
               label,
               style: const TextStyle(fontSize: 18),
-            )));
+      )));
   }
 }

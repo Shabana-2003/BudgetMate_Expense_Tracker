@@ -2,25 +2,23 @@ import 'package:budgetmate/features/money_management/presentation/pages/add/add_
 import 'package:budgetmate/features/money_management/presentation/pages/categories.dart';
 import 'package:budgetmate/features/money_management/presentation/pages/home_page/home.dart';
 import 'package:budgetmate/features/money_management/presentation/pages/search.dart';
-import 'package:budgetmate/features/money_management/presentation/pages/viewall.dart';
+import 'package:budgetmate/features/money_management/presentation/pages/category/category_screen.dart';
 import 'package:flutter/material.dart';
 
-
 class MainNavigationBar extends StatefulWidget {
-  const MainNavigationBar({Key? key}) : super(key: key);
+  const MainNavigationBar({super.key});
 
   @override
   State<MainNavigationBar> createState() => _MainNavigationBarState();
 }
-
 class _MainNavigationBarState extends State<MainNavigationBar> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   int indexColor = 0;
   final List<Widget> screens = [
-    Home(),
-    Searchh(),
-   ViewAll(),
-    viewAll(),
+    const Home(),
+    const Searchh(),
+    const ViewAll(),
+    const CategoryScreen(),
   ];
 
   @override
@@ -28,7 +26,7 @@ class _MainNavigationBarState extends State<MainNavigationBar> with SingleTicker
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300),
+      duration:const Duration(milliseconds: 300),
     );
   }
 
@@ -45,15 +43,15 @@ class _MainNavigationBarState extends State<MainNavigationBar> with SingleTicker
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) => 
-          AddScreen()
+          const AddScreen()
           ));
         },
-        child: Icon(Icons.add,color: Colors.white,),
-        backgroundColor: Color(0xff368983),
+        backgroundColor:const Color(0xff368983),
+        child:const Icon(Icons.add,color: Colors.white,),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape:const CircularNotchedRectangle(),
         child: Padding(
           padding: const EdgeInsets.only(top: 7.5, bottom: 7.5),
           child: Row(
@@ -61,7 +59,7 @@ class _MainNavigationBarState extends State<MainNavigationBar> with SingleTicker
             children: [
               buildAnimatedIcon(Icons.home, 0),
               buildAnimatedIcon(Icons.search, 1),
-              SizedBox(width: 10),
+              const  SizedBox(width: 10),
               buildAnimatedIcon(Icons.calendar_today, 2),
               buildAnimatedIcon(Icons.category, 3),
             ],
@@ -88,7 +86,7 @@ class _MainNavigationBarState extends State<MainNavigationBar> with SingleTicker
         child: Icon(
           icon,
           size: 30,
-          color: indexColor == index ? Color(0xff368983) : Colors.grey,
+          color: indexColor == index ?const Color(0xff368983) : Colors.grey,
         ),
       ),
     );

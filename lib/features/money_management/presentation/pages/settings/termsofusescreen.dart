@@ -23,7 +23,7 @@ class TermsOfUseScreen extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                'Welcome to Financia, your personal money manager application! By using Financia, you agree to comply with the following terms and conditions of use. If you do not agree with these terms, please refrain from using the application.',
+                'Welcome to budgetmate, your personal money manager application! By using budgetmate, you agree to comply with the following terms and conditions of use. If you do not agree with these terms, please refrain from using the application.',
               ),
               SizedBox(height: 16),
               Text(
@@ -34,7 +34,7 @@ class TermsOfUseScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                '1. You are solely responsible for the data you input into Financia.',
+                '1. You are solely responsible for the data you input into budgetmate.',
               ),
               Text(
                 '2. Ensure the accuracy and security of your financial data within the application.',
@@ -48,7 +48,7 @@ class TermsOfUseScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                '1. Financia uses industry-standard encryption and security measures to protect your financial data.',
+                '1. budgetmate uses industry-standard encryption and security measures to protect your financial data.',
               ),
               Text(
                 '2. In the event of any security concerns or unauthorized access, please contact us immediately.',
@@ -62,7 +62,7 @@ class TermsOfUseScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                '1. Financia is intended for personal financial management purposes only.',
+                '1. budgetmate is intended for personal financial management purposes only.',
               ),
               Text(
                 '2. Commercial use or any other unauthorized use is strictly prohibited.',
@@ -98,7 +98,7 @@ class TermsOfUseScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                '1. We welcome your feedback to improve Financia. Contact our support team for assistance.',
+                '1. We welcome your feedback to improve budgetmate. Contact our support team for assistance.',
               ),
               SizedBox(height: 16),
               Text(
@@ -109,7 +109,7 @@ class TermsOfUseScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                '1. We reserve the right to terminate or suspend the availability of Financia at our discretion.',
+                '1. We reserve the right to terminate or suspend the availability of budgetmate at our discretion.',
               ),
               SizedBox(height: 16),
               Text(
@@ -120,7 +120,7 @@ class TermsOfUseScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                '1. Financia is provided "as is" without any warranties. We are not liable for any financial decisions made based on the information provided by the application.',
+                '1. budgetmate is provided "as is" without any warranties. We are not liable for any financial decisions made based on the information provided by the application.',
               ),
               SizedBox(height: 16),
               Text(
@@ -146,7 +146,7 @@ class TermsOfUseScreen extends StatelessWidget {
               ),
               SizedBox(height: 16),
               Text(
-                'By using Financia, you acknowledge that you have read, understood, and agree to these terms. Thank you for choosing Financia to manage your financial data!',
+                'By using budgetmate, you acknowledge that you have read, understood, and agree to these terms. Thank you for choosing Financia to manage your financial data!',
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.grey,
