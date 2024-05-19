@@ -54,7 +54,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   final bool hasFinancialData;
 
-  const MyApp({Key? key, required this.hasFinancialData}) : super(key: key);
+  const MyApp({super.key, required this.hasFinancialData});
 
   @override
   Widget build(BuildContext context) {

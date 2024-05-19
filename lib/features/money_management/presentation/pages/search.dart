@@ -6,7 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 
 class Searchh extends StatefulWidget {
-  const Searchh({Key? key}) : super(key: key);
+  const Searchh({super.key});
 
   @override
   _SearchPageState createState() => _SearchPageState();
@@ -39,8 +39,8 @@ class _SearchPageState extends State<Searchh> {
     return SafeArea(
       child: Column(
         children: [
-          SizedBox(height: 20),
-          Text(
+          const SizedBox(height: 20),
+          const Text(
             'Search',
             style: TextStyle(
               color: Colors.black,
@@ -53,7 +53,7 @@ class _SearchPageState extends State<Searchh> {
             child: TextField(
               controller: _searchController,
               onChanged: _onSearchTextChanged,
-              decoration: InputDecoration(
+              decoration:const InputDecoration(
                 hintText: 'Search transactions...',
                 focusedBorder: UnderlineInputBorder(
                   borderSide:
@@ -70,7 +70,7 @@ class _SearchPageState extends State<Searchh> {
                     box.values.toList().reversed.toList();
 
                 if (searchResults.isEmpty && reversedHistoryList.isEmpty) {
-                  // User hasn't searched and hasn't added any financial data
+                
                   return Center(
                     child: SingleChildScrollView(
                       child: Column(
@@ -81,8 +81,8 @@ class _SearchPageState extends State<Searchh> {
                             height: 300,
                             width: 300,
                           ),
-                          SizedBox(height: 25),
-                          Text(
+                          const SizedBox(height: 25),
+                          const Text(
                             'Search for transactions to fill \n your financial insights',
                             style: TextStyle(
                               fontSize: 14,
@@ -94,7 +94,7 @@ class _SearchPageState extends State<Searchh> {
                     ),
                   );
                 } else if (searchResults.isEmpty) {
-                  // User has searched, but no matching transactions found
+                  
                   return Center(
                     child: SingleChildScrollView(
                       child: Column(
@@ -105,8 +105,8 @@ class _SearchPageState extends State<Searchh> {
                             height: 200,
                             width: 200,
                           ),
-                          SizedBox(height: 20),
-                          Text(
+                          const SizedBox(height: 20),
+                          const Text(
                             'No matching transactions found',
                             style: TextStyle(
                               fontSize: 16,
@@ -134,18 +134,6 @@ class _SearchPageState extends State<Searchh> {
       ),
     );
   }
-
-//
-  // void _onSearchTextChanged(String text) {
-  //   setState(() {
-  //     searchResults = text.isEmpty
-  //         ? box.values.toList()
-  //         : box.values
-  //             .where((data) =>
-  //                 data.name.toLowerCase().contains(text.toLowerCase()))
-  //             .toList();
-  //   });
-  // }
   void _onSearchTextChanged(String text) {
     setState(() {
       searchResults = text.isEmpty
@@ -163,12 +151,36 @@ class _SearchPageState extends State<Searchh> {
 
   Widget getList(FinancesData history, int index) {
     if (history.type == 'profile') {
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     }
     return Slidable(
-      actionPane: SlidableDrawerActionPane(),
+      actionPane:const SlidableDrawerActionPane(),
       actionExtentRatio: 0.25,
-      child: InkWell(
+     
+      secondaryActions: [
+        IconSlideAction(
+          caption: 'Edit',
+          color: const Color.fromARGB(255, 250, 250, 250),
+          icon: Icons.edit,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AddScreen(editData: history),
+              ),
+            );
+          },
+        ),
+        IconSlideAction(
+          caption: 'Delete',
+          color: const Color.fromARGB(255, 253, 253, 253),
+          icon: Icons.delete,
+          onTap: () {
+            _showDeleteConfirmationDialog(history);
+          },
+        ),
+      ],
+       child: InkWell(
         onTap: () {
           Navigator.push(
             context,
@@ -195,29 +207,6 @@ class _SearchPageState extends State<Searchh> {
               child: get(index, history)),
         ),
       ),
-      secondaryActions: [
-        IconSlideAction(
-          caption: 'Edit',
-          color: const Color.fromARGB(255, 250, 250, 250),
-          icon: Icons.edit,
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => AddScreen(editData: history),
-              ),
-            );
-          },
-        ),
-        IconSlideAction(
-          caption: 'Delete',
-          color: const Color.fromARGB(255, 253, 253, 253),
-          icon: Icons.delete,
-          onTap: () {
-            _showDeleteConfirmationDialog(history);
-          },
-        ),
-      ],
     );
   }
 
@@ -226,10 +215,10 @@ class _SearchPageState extends State<Searchh> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Confirm Delete",
+          title:const Text("Confirm Delete",
               style: TextStyle(color: Color.fromARGB(255, 249, 248, 248))),
-          backgroundColor: Color.fromARGB(255, 2, 116, 106),
-          content: Text(
+          backgroundColor:const Color.fromARGB(255, 2, 116, 106),
+          content:const Text(
             "Are you sure you want to delete this transaction?",
             style: TextStyle(color: Color.fromARGB(255, 206, 199, 199)),
           ),
@@ -238,7 +227,7 @@ class _SearchPageState extends State<Searchh> {
               onPressed: () {
                 Navigator.pop(context, false);
               },
-              child: Text("Cancel",
+              child:const Text("Cancel",
                   style: TextStyle(color: Color.fromARGB(255, 194, 187, 187))),
             ),
             TextButton(
@@ -246,7 +235,7 @@ class _SearchPageState extends State<Searchh> {
                 history.delete();
                 Navigator.pop(context, true);
               },
-              child: Text("Delete", style: TextStyle(color: Colors.red)),
+              child:const Text("Delete", style: TextStyle(color: Colors.red)),
             ),
           ],
         );
@@ -262,7 +251,7 @@ class _SearchPageState extends State<Searchh> {
       ),
       title: Text(
         history.name,
-        style: TextStyle(
+        style:const TextStyle(
           fontSize: 17,
           fontWeight: FontWeight.w600,
         ),
@@ -271,7 +260,7 @@ class _SearchPageState extends State<Searchh> {
         padding: const EdgeInsets.only(top: 4),
         child: Text(
           '${DateFormat('MMMM').format(history.dateTime)} ${history.dateTime.day}, ${history.dateTime.year}',
-          style: TextStyle(
+          style:const TextStyle(
             fontWeight: FontWeight.w600,
           ),
         ),

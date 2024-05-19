@@ -2,11 +2,14 @@ import 'package:budgetmate/features/money_management/presentation/pages/auth/log
 import 'package:flutter/material.dart';
 
 class IntroductionScreen extends StatefulWidget {
+  const IntroductionScreen({super.key});
+
+
   @override
-  _IntroductionScreenState createState() => _IntroductionScreenState();
+  IntroductionScreenState createState() => IntroductionScreenState();
 }
 
-class _IntroductionScreenState extends State<IntroductionScreen> {
+class IntroductionScreenState extends State<IntroductionScreen> {
   final PageController _controller = PageController(initialPage: 0);
   int _currentPage = 0; 
   final List<IntroductionItem> _introductionItems = [
@@ -73,35 +76,35 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
+           const SizedBox(
               height: 150,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50.0),
+              padding:const EdgeInsets.symmetric(horizontal: 50.0),
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Image.asset(item.image),
               ),
             ),
-            SizedBox(
+           const SizedBox(
               height: 50,
             ),
             Text(
               item.title,
-              style: TextStyle(
+              style:const TextStyle(
                 fontSize: 20,
-                color: const Color.fromARGB(255, 11, 11, 11),
+                color:Color.fromARGB(255, 11, 11, 11),
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+           const SizedBox(
               height: 15,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.0),
+              padding:const EdgeInsets.symmetric(horizontal: 30.0),
               child: Text(
                 item.description,
-                style: TextStyle(
+                style:const TextStyle(
                   fontSize: 14,
                   color: Color.fromARGB(255, 171, 166, 166),
                 ),
@@ -123,20 +126,20 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
           onPressed: () {
             if (_currentPage < _introductionItems.length - 1) {
               _controller.nextPage(
-                duration: Duration(milliseconds: 500),
+                duration:const Duration(milliseconds: 500),
                 curve: Curves.ease,
               );
             } else {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) => LoginScreen(), 
+                  builder: (context) =>const LoginScreen(), 
                 ),
               );
             }
           },
           style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              EdgeInsets.symmetric(
+           const EdgeInsets.symmetric(
                   horizontal: 50.0,
                   vertical: 15.0
                   ), 
@@ -149,14 +152,14 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             ),
 
             backgroundColor: MaterialStateProperty.all<Color>(
-              Color.fromARGB(255, 47, 125, 121)),
+             const Color.fromARGB(255, 47, 125, 121)),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(_currentPage == _introductionItems.length - 1
                   ? 'Get Started'
-                  : 'Next', style: TextStyle(
+                  : 'Next', style:const TextStyle(
         color: Color.fromARGB(255, 255, 255, 255), 
       ),),
             ],
@@ -180,7 +183,7 @@ class IntroductionItem {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: IntroductionScreen(),
   ));
 }

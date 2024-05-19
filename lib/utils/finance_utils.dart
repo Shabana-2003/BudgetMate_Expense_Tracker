@@ -87,21 +87,26 @@ List<FinancesData> year() {
   }
   return a;
 }
+
 bool isSameDay(DateTime date1, DateTime date2) {
   return date1.year == date2.year &&
       date1.month == date2.month &&
       date1.day == date2.day;
 }
+
 bool isSameWeek(DateTime date1, DateTime date2) {
   int daysDifference = date1.difference(date2).inDays;
   return daysDifference >= -date2.weekday && daysDifference < 7 - date2.weekday;
 }
+
 bool isSameMonth(DateTime date1, DateTime date2) {
   return date1.year == date2.year && date1.month == date2.month;
 }
+
 bool isSameYear(DateTime date1, DateTime date2) {
   return date1.year == date2.year;
 }
+
 int total_chart(List<FinancesData> history2) {
   List a = [0, 0];
 
@@ -113,6 +118,7 @@ int total_chart(List<FinancesData> history2) {
   totals = a.reduce((value, element) => value + element);
   return totals;
 }
+
 List time(List<FinancesData> history2, bool hour) {
   List<FinancesData> a = [];
   List total = [];
@@ -138,6 +144,7 @@ List time(List<FinancesData> history2, bool hour) {
   print(total);
   return total;
 }
+
 List<FinancesData> incomeTransactions() {
   List<FinancesData> a = [];
   var history2 = box.values.toList();
@@ -148,6 +155,7 @@ List<FinancesData> incomeTransactions() {
   }
   return a;
 }
+
 List<FinancesData> expenseTransactions() {
   List<FinancesData> a = [];
   var history2 = box.values.toList();

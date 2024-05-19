@@ -1,4 +1,3 @@
-
 import 'package:budgetmate/features/money_management/data/models/finances_data.dart';
 import 'package:budgetmate/features/money_management/presentation/pages/add/add_screen.dart';
 import 'package:budgetmate/features/money_management/presentation/widgets/chart.dart';
@@ -8,7 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Statistics extends StatefulWidget {
-  const Statistics({Key? key}) : super(key: key);
+  const Statistics({super.key});
 
   @override
   State<Statistics> createState() => _StatisticsState();
@@ -44,8 +43,8 @@ class _StatisticsState extends State<Statistics> {
         SliverToBoxAdapter(
           child: Column(
             children: [
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Statistics',
                 style: TextStyle(
                   color: Colors.black,
@@ -53,7 +52,7 @@ class _StatisticsState extends State<Statistics> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
@@ -75,7 +74,7 @@ class _StatisticsState extends State<Statistics> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: index_color == index
-                                  ? Color.fromARGB(255, 47, 125, 121)
+                                  ? const Color.fromARGB(255, 47, 125, 121)
                                   : Colors.white,
                             ),
                             alignment: Alignment.center,
@@ -96,13 +95,13 @@ class _StatisticsState extends State<Statistics> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Chart(
                 indexx: index_color,
               ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -136,48 +135,9 @@ class _StatisticsState extends State<Statistics> {
                         top: 4,
                       ),
                       child: Slidable(
-                        actionPane: SlidableDrawerActionPane(),
+                        actionPane:const SlidableDrawerActionPane(),
                         actionExtentRatio: 0.25,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                                14), // Set your desired border radius
-                            border: Border.all(
-                              color: Color.fromARGB(255, 235, 236, 236),
-                              width: 3.0, // Set your desired border color
-                            ),
-                          ),
-                          child: ListTile(
-                            leading: ClipRRect(
-                              borderRadius: BorderRadius.circular(5),
-                              child: Image.asset('assets/images/${a[index].name}.png',
-                                  height: 40),
-                            ),
-                            title: Text(
-                              a[index].name,
-                              style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            subtitle: Text(
-                             '${DateFormat('MMMM').format(a[index].dateTime)} ${a[index].dateTime.day}, ${a[index].dateTime.year}',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            trailing: Text(
-                              '\₹ ${a[index].amount}',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 19,
-                                color: a[index].transactionType == 'Income'
-                                    ? Colors.green
-                                    : Colors.red,
-                              ),
-                            ),
-                          ),
-                        ),
+                        
                         secondaryActions: [
                           IconSlideAction(
                             caption: 'Edit',
@@ -204,6 +164,47 @@ class _StatisticsState extends State<Statistics> {
                             },
                           ),
                         ],
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                                14), // Set your desired border radius
+                            border: Border.all(
+                              color: Color.fromARGB(255, 235, 236, 236),
+                              width: 3.0, // Set your desired border color
+                            ),
+                          ),
+                          child: ListTile(
+                            leading: ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+                              child: Image.asset(
+                                  'assets/images/${a[index].name}.png',
+                                  height: 40),
+                            ),
+                            title: Text(
+                              a[index].name,
+                              style:const TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            subtitle: Text(
+                              '${DateFormat('MMMM').format(a[index].dateTime)} ${a[index].dateTime.day}, ${a[index].dateTime.year}',
+                              style:const TextStyle(
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            trailing: Text(
+                              '\₹ ${a[index].amount}',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 19,
+                                color: a[index].transactionType == 'Income'
+                                    ? Colors.green
+                                    : Colors.red,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     );
                   },
@@ -216,14 +217,12 @@ class _StatisticsState extends State<Statistics> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                       
                         Image.asset(
                           'assets/images/graph.png',
                           height: 300,
                           width: 300,
                         ),
-                        
-                        Padding(
+                       const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 30.0),
                           child: Text(
                             "Empty ledger. Add transactions to start your financial story.",
@@ -248,10 +247,10 @@ class _StatisticsState extends State<Statistics> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Confirm Delete",
+          title:const Text("Confirm Delete",
               style: TextStyle(color: Color.fromARGB(255, 249, 248, 248))),
-          backgroundColor: Color.fromARGB(255, 2, 116, 106),
-          content: Text(
+          backgroundColor:const Color.fromARGB(255, 2, 116, 106),
+          content:const Text(
             "Are you sure you want to delete this transaction?",
             style: TextStyle(color: Color.fromARGB(255, 206, 199, 199)),
           ),
@@ -260,7 +259,7 @@ class _StatisticsState extends State<Statistics> {
               onPressed: () {
                 Navigator.pop(context, false);
               },
-              child: Text("Cancel",
+              child:const Text("Cancel",
                   style: TextStyle(color: Color.fromARGB(255, 194, 187, 187))),
             ),
             TextButton(
@@ -268,7 +267,7 @@ class _StatisticsState extends State<Statistics> {
                 history.delete();
                 Navigator.pop(context, true);
               },
-              child: Text("Delete", style: TextStyle(color: Colors.red)),
+              child:const Text("Delete", style: TextStyle(color: Colors.red)),
             ),
           ],
         );

@@ -7,7 +7,7 @@ import 'package:intl/intl.dart' as intl;
 class AddScreen extends StatefulWidget {
   final FinancesData? editData;
 
-  const AddScreen({Key? key, this.editData}) : super(key: key);
+  const AddScreen({super.key, this.editData});
 
   @override
   State<AddScreen> createState() => AddScreenState();
@@ -15,15 +15,15 @@ class AddScreen extends StatefulWidget {
 
 class AddScreenState extends State<AddScreen> {
   final box = Hive.box<FinancesData>('data');
-  DateTime date = new DateTime.now();
+  DateTime date = DateTime.now();
   TextEditingController dateController = TextEditingController();
   String? selctedItem;
-  TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
 
-  String? selctedItemi; // in.. or ex..
-  final TextEditingController expalin_C = TextEditingController();
+  String? selctedItemi;
+  final TextEditingController expalinC = TextEditingController();
   FocusNode ex = FocusNode();
-  final TextEditingController amount_c = TextEditingController();
+  final TextEditingController amountC = TextEditingController();
   FocusNode amount_ = FocusNode();
   final _formKey = GlobalKey<FormState>();
   TextEditingController amountController = TextEditingController();
@@ -43,8 +43,8 @@ class AddScreenState extends State<AddScreen> {
       selctedItemi = widget.editData!.type;
       selctedItem = widget.editData!.name;
       _textEditingController.text = widget.editData!.name;
-      amount_c.text = widget.editData!.amount;
-      expalin_C.text = widget.editData!.purpose;
+      amountC.text = widget.editData!.amount;
+      expalinC.text = widget.editData!.purpose;
       date = widget.editData!.dateTime;
       updateDateText();
       print('Populated data for editing');
@@ -57,6 +57,7 @@ class AddScreenState extends State<AddScreen> {
     dateController.text = 'Date: $formattedDate';
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
@@ -65,11 +66,9 @@ class AddScreenState extends State<AddScreen> {
           child: Form(
             key: _formKey,
             child: Column(
-             
               children: [
-                background_container(context),
-                 main_container(),
-                 
+                backgroundContainer(context),
+                mainContainer(),
               ],
             ),
           ),
@@ -78,7 +77,7 @@ class AddScreenState extends State<AddScreen> {
     );
   }
 
-  Container main_container() {
+  Container mainContainer() {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -88,19 +87,19 @@ class AddScreenState extends State<AddScreen> {
       width: 340,
       child: Column(
         children: [
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           transactionCategory(),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           amount(),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           cashFlow(),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           purpose(),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           selectDate(),
-          SizedBox(height: 55),
+          const SizedBox(height: 55),
           save(),
-          SizedBox(height: 0),
+          const SizedBox(height: 0),
         ],
       ),
     );
@@ -115,9 +114,9 @@ class AddScreenState extends State<AddScreen> {
         }
         var add = FinancesData(
           selctedItemi!,
-          amount_c.text,
+          amountC.text,
           date,
-          expalin_C.text,
+          expalinC.text,
           selctedItem!,
           isFavorite: isFavorite,
         );
@@ -129,11 +128,11 @@ class AddScreenState extends State<AddScreen> {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Color(0xff368983),
+          color: const Color(0xff368983),
         ),
         width: 120,
         height: 50,
-        child: Text(
+        child: const Text(
           'Save',
           style: TextStyle(
             fontFamily: 'f',
@@ -154,7 +153,7 @@ class AddScreenState extends State<AddScreen> {
       alignment: Alignment.bottomLeft,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(width: 2, color: Color(0xffC5C5C5))),
+          border: Border.all(width: 2, color: const Color(0xffC5C5C5))),
       width: 300,
       child: Column(
         children: [
@@ -168,11 +167,11 @@ class AddScreenState extends State<AddScreen> {
                 builder: (BuildContext context, Widget? child) {
                   return Theme(
                     data: ThemeData.light().copyWith(
-                      primaryColor: Color.fromARGB(255, 54, 137, 131),
-                      colorScheme: ColorScheme.light(
+                      primaryColor: const Color.fromARGB(255, 54, 137, 131),
+                      colorScheme: const ColorScheme.light(
                           primary: Color.fromARGB(255, 54, 137, 131)),
-                      buttonTheme:
-                          ButtonThemeData(textTheme: ButtonTextTheme.primary),
+                      buttonTheme: const ButtonThemeData(
+                          textTheme: ButtonTextTheme.primary),
                     ),
                     child: child!,
                   );
@@ -186,14 +185,14 @@ class AddScreenState extends State<AddScreen> {
             },
             child: TextFormField(
               controller: dateController,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 17,
                 color: Colors.black,
               ),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Select Date',
                 hintStyle: TextStyle(
-                  color: const Color.fromARGB(255, 158, 158, 158),
+                  color: Color.fromARGB(255, 158, 158, 158),
                 ),
                 border: InputBorder.none,
                 focusedBorder: InputBorder.none,
@@ -209,19 +208,16 @@ class AddScreenState extends State<AddScreen> {
   Padding transactionCategory() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0),
-      child: Container(
+      child: SizedBox(
         width: 300,
-
-        // ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 8, bottom: 4, left: 8),
+            const Padding(
+              padding: EdgeInsets.only(top: 8, bottom: 4, left: 8),
               child: Text(
                 'Select Transaction Category',
-                style:
-                    TextStyle(color: const Color.fromARGB(255, 122, 122, 122)),
+                style: TextStyle(color: Color.fromARGB(255, 122, 122, 122)),
               ),
             ),
             Column(
@@ -230,13 +226,13 @@ class AddScreenState extends State<AddScreen> {
                     (e) => RadioListTile(
                       title: Text(
                         e,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 17,
                             color: Color.fromARGB(255, 103, 103, 103)),
                       ),
                       value: e,
                       groupValue: selctedItemi,
-                      activeColor: Color(0xff368983),
+                      activeColor: const Color(0xff368983),
                       onChanged: (value) {
                         setState(() {
                           selctedItemi = value as String;
@@ -256,9 +252,9 @@ class AddScreenState extends State<AddScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
-        keyboardType: TextInputType.numberWithOptions(decimal: true),
+        keyboardType: const TextInputType.numberWithOptions(decimal: true),
         focusNode: amount_,
-        controller: amount_c,
+        controller: amountC,
         onChanged: (value) {
           if (value.isNotEmpty) {
             try {
@@ -280,16 +276,17 @@ class AddScreenState extends State<AddScreen> {
           return null;
         },
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           labelText: 'Amount',
           labelStyle: TextStyle(fontSize: 17, color: Colors.grey.shade500),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(width: 2, color: Color(0xffC5C5C5)),
+            borderSide: const BorderSide(width: 2, color: Color(0xffC5C5C5)),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(width: 2, color: Color(0xff368983)),
+            borderSide: const BorderSide(width: 2, color: Color(0xff368983)),
           ),
         ),
       ),
@@ -301,14 +298,14 @@ class AddScreenState extends State<AddScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Validation Error'),
+          title: const Text('Validation Error'),
           content: Text(message),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );
@@ -321,17 +318,18 @@ class AddScreenState extends State<AddScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
         focusNode: ex,
-        controller: expalin_C,
+        controller: expalinC,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           labelText: 'Purpose',
           labelStyle: TextStyle(fontSize: 17, color: Colors.grey.shade500),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(width: 2, color: Color(0xffC5C5C5))),
+              borderSide: const BorderSide(width: 2, color: Color(0xffC5C5C5))),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(width: 2, color: Color(0xff368983))),
+              borderSide: const BorderSide(width: 2, color: Color(0xff368983))),
         ),
       ),
     );
@@ -342,13 +340,13 @@ class AddScreenState extends State<AddScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           width: 300,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               width: 2,
-              color: Color(0xffC5C5C5),
+              color: const Color(0xffC5C5C5),
             ),
           ),
           child: Column(
@@ -402,7 +400,7 @@ class AddScreenState extends State<AddScreen> {
                       const SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      const Text(
                         '•',
                         style: TextStyle(
                           fontSize: 24,
@@ -437,13 +435,13 @@ class AddScreenState extends State<AddScreen> {
     );
   }
 
-  Column background_container(BuildContext context) {
+  Column backgroundContainer(BuildContext context) {
     return Column(
       children: [
         Container(
           width: double.infinity,
           height: 100,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0xff368983),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(20),
@@ -452,9 +450,9 @@ class AddScreenState extends State<AddScreen> {
           ),
           child: Column(
             children: [
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -463,9 +461,9 @@ class AddScreenState extends State<AddScreen> {
                       onTap: () {
                         Navigator.of(context).pop();
                       },
-                      child: Icon(Icons.arrow_back, color: Colors.white),
+                      child: const Icon(Icons.arrow_back, color: Colors.white),
                     ),
-                    Text(
+                    const Text(
                       'Add Finances',
                       style: TextStyle(
                           fontSize: 20,

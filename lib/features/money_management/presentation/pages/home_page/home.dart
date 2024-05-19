@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
               ),
               GlowingOverscrollIndicator(
                 axisDirection: AxisDirection.down,
-                color: Color.fromARGB(255, 2, 116, 106),
+                color:const Color.fromARGB(255, 2, 116, 106),
                 child: ValueListenableBuilder(
                   valueListenable: box.listenable(),
                   builder: (context, value, child) {
@@ -85,7 +85,7 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(
+                          const  SizedBox(
                               height: 30,
                             ),
                             Image.asset(
@@ -120,7 +120,7 @@ class _HomeState extends State<Home> {
                               padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
                               child: Text(
                                 DateFormat('MMMM d, yyyy').format(DateTime.parse(date)),
-                                style: TextStyle(
+                                style:const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
                                   color: Colors.black,
@@ -146,38 +146,12 @@ class _HomeState extends State<Home> {
 
   Widget getList(FinancesData history, int index) {
     if (history.type == 'profile') {
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     }
     return Slidable(
       actionPane:const SlidableDrawerActionPane(),
       actionExtentRatio: 0.25,
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => AddScreen(editData: history),
-            ),
-          );
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: 15,
-            right: 15,
-            bottom: 4,
-            top: 4,
-          ),
-          child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(
-                  color: Color.fromARGB(255, 235, 236, 236),
-                  width: 3.0,
-                ),
-              ),
-              child: get(index, history)),
-        ),
-      ),
+      
       secondaryActions: [
         IconSlideAction(
           caption: 'Edit',
@@ -201,6 +175,33 @@ class _HomeState extends State<Home> {
           },
         ),
       ],
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddScreen(editData: history),
+            ),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 15,
+            right: 15,
+            bottom: 4,
+            top: 4,
+          ),
+          child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(
+                  color:const Color.fromARGB(255, 235, 236, 236),
+                  width: 3.0,
+                ),
+              ),
+              child: get(index, history)),
+        ),
+      ),
     );
   }
 
@@ -211,8 +212,8 @@ class _HomeState extends State<Home> {
         return AlertDialog(
           title:const Text("Confirm Delete",
               style: TextStyle(color: Color.fromARGB(255, 249, 248, 248))),
-          backgroundColor: Color.fromARGB(255, 2, 116, 106),
-          content: Text(
+          backgroundColor:const Color.fromARGB(255, 2, 116, 106),
+          content:const Text(
             "Are you sure you want to delete this transaction?",
             style: TextStyle(color: Color.fromARGB(255, 206, 199, 199)),
           ),
@@ -221,7 +222,7 @@ class _HomeState extends State<Home> {
               onPressed: () {
                 Navigator.pop(context, false);
               },
-              child: Text("Cancel",
+              child:const Text("Cancel",
                   style: TextStyle(color: Color.fromARGB(255, 194, 187, 187))),
             ),
             TextButton(
@@ -245,7 +246,7 @@ class _HomeState extends State<Home> {
       ),
       title: Text(
         history.name,
-        style: TextStyle(
+        style:const TextStyle(
           fontSize: 17,
           fontWeight: FontWeight.w600,
         ),
@@ -254,7 +255,7 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.only(top: 4),
         child: Text(
           '${DateFormat('MMMM').format(history.dateTime)} ${history.dateTime.day}, ${history.dateTime.year}',
-          style: TextStyle(
+          style:const TextStyle(
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -279,7 +280,7 @@ class _HomeState extends State<Home> {
             Container(
               width: double.infinity,
               height: 240,
-              decoration: BoxDecoration(
+              decoration:const BoxDecoration(
                 color: Color(0xff368983),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
@@ -296,13 +297,13 @@ class _HomeState extends State<Home> {
                       child: Container(
                         height: 45,
                         width: 45,
-                        color: Color.fromRGBO(250, 250, 250, 0.1),
+                        color:const Color.fromRGBO(250, 250, 250, 0.1),
                         child: InkWell(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ProfileScreen()),
+                                  builder: (context) =>const ProfileScreen()),
                             );
                           },
                           child: ValueListenableBuilder(
@@ -317,7 +318,7 @@ class _HomeState extends State<Home> {
 
                               return CircleAvatar(
                                 radius: 18,
-                                backgroundColor: Color(0xff368983),
+                                backgroundColor:const Color(0xff368983),
                                 backgroundImage:
                                     profileData.profilePhotoPath.isNotEmpty
                                         ? FileImage(
@@ -336,7 +337,7 @@ class _HomeState extends State<Home> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                       const Text(
                           'Hello!!',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
@@ -349,7 +350,7 @@ class _HomeState extends State<Home> {
                               Hive.box<ProfileData>('profileBox').listenable(),
                           builder: (context, value, child) {
                             if (Hive.box<ProfileData>('profileBox').isEmpty) {
-                              return Text(
+                              return const Text(
                                 'PocketBuddies',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -367,7 +368,7 @@ class _HomeState extends State<Home> {
                                 nickname.isNotEmpty
                                     ? nickname
                                     : 'PocketBuddies',
-                                style: TextStyle(
+                                style:const TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 20,
                                   color: Colors.white,
@@ -392,7 +393,7 @@ class _HomeState extends State<Home> {
             height:MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width*0.8,
             decoration: BoxDecoration(
-              boxShadow: [
+              boxShadow: const[
                 BoxShadow(
                   color: Color.fromRGBO(47, 125, 121, 0.3),
                   offset: Offset(0, 6),
@@ -400,18 +401,18 @@ class _HomeState extends State<Home> {
                   spreadRadius: 6,
                 ),
               ],
-              color: Color.fromARGB(255, 47, 125, 121),
+              color:const Color.fromARGB(255, 47, 125, 121),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
               children: [
-                SizedBox(height: 10),
+              const  SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                     const Text(
                         'Total Balance',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
@@ -419,17 +420,16 @@ class _HomeState extends State<Home> {
                           color: Colors.white,
                         ),
                       ),
-                      //     Icon(Icons.abc_outlined),
-
+                    
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Statistics()),
+                                builder: (context) =>const Statistics()),
                           );
                         },
-                        child: Icon(
+                        child:const Icon(
                           Icons.bar_chart_outlined,
                           size: 30,
                           color: Color.fromARGB(255, 225, 222, 222),
@@ -438,7 +438,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                SizedBox(height: 7),
+              const  SizedBox(height: 7),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Row(
@@ -446,7 +446,7 @@ class _HomeState extends State<Home> {
                     children: [
                       Text(
                         '\₹ ${total()}',
-                        style: TextStyle(
+                        style:const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 25,
                           color: Colors.white,
@@ -459,10 +459,10 @@ class _HomeState extends State<Home> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Favorite()),
+                                  builder: (context) =>const Favorite()),
                             );
                           },
-                          child: Icon(
+                          child:const Icon(
                             Icons.star,
                             size: 30,
                             color: Color.fromARGB(255, 225, 222, 222),
@@ -472,9 +472,9 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                SizedBox(height: 25),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+               const SizedBox(height: 25),
+               const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -525,7 +525,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                SizedBox(height: 6),
+               const SizedBox(height: 6),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Row(
@@ -533,7 +533,7 @@ class _HomeState extends State<Home> {
                     children: [
                       Text(
                         '\₹ ${income()}',
-                        style: TextStyle(
+                        style:const TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 17,
                           color: Colors.white,
@@ -541,7 +541,7 @@ class _HomeState extends State<Home> {
                       ),
                       Text(
                         '\₹ ${expenses()}',
-                        style: TextStyle(
+                        style:const TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 17,
                           color: Colors.white,

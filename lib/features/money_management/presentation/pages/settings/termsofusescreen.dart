@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
 class TermsOfUseScreen extends StatelessWidget {
+  const TermsOfUseScreen({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Terms of Use'),
-        backgroundColor: Color.fromARGB(255, 47, 125, 121),
+        title: const Text('Terms of Use'),
+        backgroundColor: const Color.fromARGB(255, 47, 125, 121),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

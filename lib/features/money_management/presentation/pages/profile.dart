@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
@@ -98,7 +98,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ListTile(
               title: const Text('Delete photo',
                   style: TextStyle(color: Color.fromARGB(255, 253, 252, 252))),
-              tileColor: Color.fromARGB(255, 47, 125, 121),
+              tileColor:const Color.fromARGB(255, 47, 125, 121),
               onTap: () {
                 _deleteProfilePhoto();
                 Navigator.of(context).pop();
@@ -107,7 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ListTile(
               title: const Text('Add photo',
                   style: TextStyle(color: Color.fromARGB(255, 250, 250, 250))),
-              tileColor: Color.fromARGB(255, 47, 125, 121),
+              tileColor:const Color.fromARGB(255, 47, 125, 121),
               onTap: () {
                 Navigator.of(context).pop();
               },
@@ -140,7 +140,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Container(
                     width: double.infinity,
                     height: 700,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       color: Color(0xff368983),
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(400),
@@ -149,7 +149,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     child: Stack(
                       children: [
-                        Positioned(
+                       const Positioned(
                           top: 50,
                           left: 25,
                           child: Column(
@@ -177,8 +177,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     builder: (context) => SettingsScreen()),
                               );
                             },
-                            icon: Icon(Icons.settings),
-                            color: Color.fromARGB(255, 227, 227, 227),
+                            icon:const Icon(Icons.settings),
+                            color:const Color.fromARGB(255, 227, 227, 227),
                           ),
                         ),
                       ],
@@ -193,141 +193,139 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.width * 0.9,
                       decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
+                        boxShadow:const [
+                       BoxShadow(
                             color: Color.fromRGBO(242, 250, 250, 0.294),
                             offset: Offset(0, 6),
                             blurRadius: 12,
                             spreadRadius: 6,
                           ),
                         ],
-                        color: Color.fromARGB(255, 248, 249, 249),
+                        color:const Color.fromARGB(255, 248, 249, 249),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: Container(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  if (_isEditing) {
-                                    _pickImage();
-                                  }
-                                },
-                                child: Stack(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 80,
-                                      backgroundColor:
-                                          Color.fromARGB(255, 47, 125, 121),
-                                      child: _profilePhotoController
-                                              .text.isNotEmpty
-                                          ? ClipOval(
-                                              child: Image.file(
-                                                File(_profileData
-                                                    .profilePhotoPath),
-                                                fit: BoxFit.cover,
-                                                width: 220.0,
-                                                height: 220.0,
-                                              ),
-                                            )
-                                          : ClipOval(
-                                              child: Image.asset(
-                                                defaultPhotoPath,
-                                                fit: BoxFit.cover,
-                                                width: 120.0,
-                                                height: 120.0,
-                                              ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                if (_isEditing) {
+                                  _pickImage();
+                                }
+                              },
+                              child: Stack(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 80,
+                                    backgroundColor:
+                                      const  Color.fromARGB(255, 47, 125, 121),
+                                    child: _profilePhotoController
+                                            .text.isNotEmpty
+                                        ? ClipOval(
+                                            child: Image.file(
+                                              File(_profileData
+                                                  .profilePhotoPath),
+                                              fit: BoxFit.cover,
+                                              width: 220.0,
+                                              height: 220.0,
                                             ),
-                                    ),
-                                    Positioned(
-                                      bottom: 0,
-                                      right: 0,
-                                      child: CircleAvatar(
-                                        backgroundColor:
-                                            Color.fromARGB(255, 252, 253, 253),
-                                        radius: 20,
-                                        child: Icon(
-                                          Icons.camera_alt,
-                                          color:
-                                              Color.fromARGB(255, 47, 125, 121),
-                                        ),
+                                          )
+                                        : ClipOval(
+                                            child: Image.asset(
+                                              defaultPhotoPath,
+                                              fit: BoxFit.cover,
+                                              width: 120.0,
+                                              height: 120.0,
+                                            ),
+                                          ),
+                                  ),
+                                  const Positioned(
+                                    bottom: 0,
+                                    right: 0,
+                                    child: CircleAvatar(
+                                      backgroundColor:
+                                          Color.fromARGB(255, 252, 253, 253),
+                                      radius: 20,
+                                      child: Icon(
+                                        Icons.camera_alt,
+                                        color:
+                                            Color.fromARGB(255, 47, 125, 121),
                                       ),
                                     ),
-                                  ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                           const SizedBox(height: 16),
+                            TextFormField(
+                              controller: _nameController,
+                              cursorColor:const Color.fromARGB(255, 47, 125,
+                                  121),
+                              decoration:const InputDecoration(
+                                hintText: 'Name',
+                                hintStyle: TextStyle(
+                                  color: Color.fromARGB(
+                                      255, 143, 143, 143),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 47, 125, 121),
+                                  ),
+                                ),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color:
+                                    Color.fromARGB(255, 31, 31, 31),
+                                  ),
                                 ),
                               ),
-                              SizedBox(height: 16),
-                              TextFormField(
-                                controller: _nameController,
-                                cursorColor: Color.fromARGB(255, 47, 125,
-                                    121),
-                                decoration: InputDecoration(
-                                  hintText: 'Name',
-                                  hintStyle: TextStyle(
-                                    color: const Color.fromARGB(
-                                        255, 143, 143, 143),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color.fromARGB(255, 47, 125, 121),
+                            ),
+                            const SizedBox(height: 18),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: ['Female', 'Male', 'Other']
+                                  .map(
+                                    (String value) => ChoiceChip(
+                                      label: Text(value),
+                                      selected: _selectedGender == value,
+                                      selectedColor:const Color.fromARGB(255, 188, 188, 188),
+                                      onSelected: (bool selected) {
+                                        setState(() {
+                                          _selectedGender =
+                                              selected ? value : null;
+                                        });
+                                      },
                                     ),
-                                  ),
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
+                                  )
+                                  .toList(),
+                            ),
+                            const SizedBox(height: 17),
+                            TextFormField(
+                              controller: _petNameController,
+                              cursorColor:const Color.fromARGB(255, 47, 125, 121),
+                              decoration:const InputDecoration(
+                                labelText: 'Nickname',
+                                labelStyle: TextStyle(
+                                    color: Color.fromARGB(255, 47, 125, 121)),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
                                       color:
-                                          const Color.fromARGB(255, 31, 31, 31),
-                                    ),
-                                  ),
+                                          Color.fromARGB(255, 47, 125, 121)),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black),
                                 ),
                               ),
-                              const SizedBox(height: 18),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: ['Female', 'Male', 'Other']
-                                    .map(
-                                      (String value) => ChoiceChip(
-                                        label: Text(value),
-                                        selected: _selectedGender == value,
-                                        selectedColor: Color.fromARGB(255, 188, 188, 188),
-                                        onSelected: (bool selected) {
-                                          setState(() {
-                                            _selectedGender =
-                                                selected ? value : null;
-                                          });
-                                        },
-                                      ),
-                                    )
-                                    .toList(),
-                              ),
-                              const SizedBox(height: 17),
-                              TextFormField(
-                                controller: _petNameController,
-                                cursorColor: Color.fromARGB(255, 47, 125, 121),
-                                decoration: InputDecoration(
-                                  labelText: 'Nickname',
-                                  labelStyle: TextStyle(
-                                      color: Color.fromARGB(255, 47, 125, 121)),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color:
-                                            Color.fromARGB(255, 47, 125, 121)),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.black),
-                                  ),
-                                ),
-                                style: _petNameController.text.isNotEmpty
-                                    ? TextStyle(
-                                        color:
-                                            const Color.fromARGB(255, 6, 5, 5))
-                                    : null,
-                              ),
-                              const SizedBox(height: 16),
-                            ],
-                          ),
+                              style: _petNameController.text.isNotEmpty
+                                  ?const  TextStyle(
+                                      color:
+                                       Color.fromARGB(255, 6, 5, 5))
+                                  : null,
+                            ),
+                            const SizedBox(height: 16),
+                          ],
                         ),
                       ),
                     ),
@@ -339,18 +337,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   _saveProfile();
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => MainNavigationBar(),
+                      builder: (context) =>const MainNavigationBar(),
                     ),
                   );
                 },
-                child: const Text('Save Profile', style: TextStyle(
-        color: Color.fromARGB(255, 255, 255, 255),
-      ),),
+           
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(
-                      Color.fromARGB(255, 47, 125, 121)),
+                     const Color.fromARGB(255, 47, 125, 121)),
                   fixedSize: MaterialStateProperty.all<Size>(
-                    Size(200, 70),
+                  const  Size(200, 70),
                   ),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
@@ -358,6 +354,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                 ),
+                     child:const Text('Save Profile', style: TextStyle(
+        color: Color.fromARGB(255, 255, 255, 255),
+      ),),
               ),
             ],
           ),

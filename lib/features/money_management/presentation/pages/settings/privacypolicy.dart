@@ -1,37 +1,39 @@
 import 'package:flutter/material.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
+  const PrivacyPolicyScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Privacy Policy'),
-        backgroundColor: Color.fromARGB(255, 47, 125, 121),
+        title: const Text('Privacy Policy'),
+        backgroundColor: const Color.fromARGB(255, 47, 125, 121),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Privacy Policy',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Last Updated: December 30, 2023',
               style: TextStyle(
                 color: Colors.grey,
               ),
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Welcome to BudgetMate, your personal money manager application! This Privacy Policy outlines how Financia collects, uses, and protects your personal information. By using BudgetMate, you agree to the terms outlined in this policy.',
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             _buildPrivacyPolicyItem(
               'Information We Collect',
               'Financial Data: BudgetMate collects and stores the financial data you input into the application, including income, expenses, and related details.',
@@ -68,8 +70,8 @@ class PrivacyPolicyScreen extends StatelessWidget {
               'Disclaimer',
               'No Guarantees: Financia is provided "as is" without any guarantees. We are not liable for any financial decisions made based on the information provided by the application.',
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'By using BudgetMate, you acknowledge that you have read, understood, and agree to this Privacy Policy.',
             ),
           ],
@@ -82,15 +84,15 @@ class PrivacyPolicyScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 16,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(content),
       ],
     );

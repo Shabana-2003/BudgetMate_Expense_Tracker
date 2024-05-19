@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 
 class InstructionalContentScreen extends StatelessWidget {
+  const InstructionalContentScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Instructional Content'),
-        backgroundColor: Color.fromARGB(255, 47, 125, 121),
+        title: const Text('Instructional Content'),
+        backgroundColor: const Color.fromARGB(255, 47, 125, 121),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Welcome to BudgetMate: Your Personal Money Manager!',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Thank you for choosing BudgetMate to manage your finances. This guide will help you get started with the app and make the most out of its features.',
             ),
             _buildContentItem(
@@ -60,8 +62,8 @@ class InstructionalContentScreen extends StatelessWidget {
               'Need Help or Have Feedback?',
               '1. If you encounter any issues or have suggestions for improvement, contact our support team through the app.',
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Enjoy BudgetMate!\nThank you for using BudgetMate!',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -78,15 +80,15 @@ class InstructionalContentScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 16,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(content),
       ],
     );

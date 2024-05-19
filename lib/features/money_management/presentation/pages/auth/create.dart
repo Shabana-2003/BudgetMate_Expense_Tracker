@@ -7,7 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class SignupScreen extends StatefulWidget {
-  SignupScreen({Key? key}) : super(key: key);
+  const SignupScreen({super.key});
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -40,16 +40,16 @@ class _SignupScreenState extends State<SignupScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 150), // Adjust the height as needed
-                Text(
+                const SizedBox(height: 150), // Adjust the height as needed
+                const Text(
                   'JOIN BUDGETMATE NOW',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 0, 0, 0),
+                    color: Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Form(
                   key: _formKey,
                   child: Column(
@@ -58,7 +58,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: TextFormField(
                           controller: _name,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Name',
                           ),
                           validator: (value) {
@@ -79,7 +79,6 @@ class _SignupScreenState extends State<SignupScreen> {
                           decoration: const InputDecoration(
                             labelText: 'Email',
                           ),
-                          
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your email';
@@ -96,13 +95,12 @@ class _SignupScreenState extends State<SignupScreen> {
                           controller: _password,
                           decoration: const InputDecoration(
                             labelText: 'Password',
-                            
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your password';
                             }
-                        
+
                             return null;
                           },
                           obscureText: true,
@@ -118,8 +116,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 ElevatedButton(
                   onPressed: _signup,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 47, 125, 121), 
-                    padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                    backgroundColor: const Color.fromARGB(255, 47, 125, 121),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 60, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),

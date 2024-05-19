@@ -1,4 +1,3 @@
-
 import 'package:budgetmate/features/money_management/data/auth/auth_services.dart';
 import 'package:budgetmate/features/money_management/presentation/pages/settings/contactus.dart';
 import 'package:budgetmate/features/money_management/presentation/pages/settings/faq.dart';
@@ -8,17 +7,18 @@ import 'package:budgetmate/features/money_management/presentation/pages/settings
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
+  SettingsScreen({super.key});
 
   final auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
-        backgroundColor:Color.fromARGB(255, 47, 125, 121),
+        title: const Text('Settings'),
+        backgroundColor: const Color.fromARGB(255, 47, 125, 121),
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         children: [
           _buildSettingsItem(
             'Terms of Use',
@@ -68,44 +68,49 @@ class SettingsScreen extends StatelessWidget {
   }
 
   Widget _buildSettingsItem(String title, String subtitle, VoidCallback onTap) {
-  return Column(
-    children: [
-      ListTile(
-        contentPadding: EdgeInsets.only(left: 5, right: 10), // Adjust left and right padding
-        title: Text(
-          title,
-          style: TextStyle(fontWeight: FontWeight.w300),
+    return Column(
+      children: [
+        ListTile(
+          contentPadding: const EdgeInsets.only(
+              left: 5, right: 10),
+          title: Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.w300),
+          ),
+          subtitle: Text(
+            subtitle,
+            style: const TextStyle(
+                color: Color.fromARGB(
+                    255, 168, 168, 168)),
+          ),
+          onTap: onTap,
         ),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(color: Color.fromARGB(255, 168, 168, 168)), // Lighten the subtitle text
-        ),
-        onTap: onTap,
-      ),   
-    ],
-  );
-}
-
-
+      ],
+    );
+  }
 
   void _navigateToTermsOfUse(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (_) => TermsOfUseScreen()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => const TermsOfUseScreen()));
   }
 
   void _navigateToPrivacyPolicy(BuildContext context) {
-   Navigator.push(context, MaterialPageRoute(builder: (_) => PrivacyPolicyScreen()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => PrivacyPolicyScreen()));
   }
 
   void _navigateToInstructionalContent(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (_) => InstructionalContentScreen()));
+    Navigator.push(context,
+        MaterialPageRoute(builder: (_) => InstructionalContentScreen()));
   }
 
   void _navigateToFAQs(BuildContext context) {
-   Navigator.push(context, MaterialPageRoute(builder: (_) => FAQsScreen()));
+    Navigator.push(context, MaterialPageRoute(builder: (_) => FAQsScreen()));
   }
 
   void _navigateToContactUs(BuildContext context) {
-  Navigator.push(context, MaterialPageRoute(builder: (_) => ContactUsScreen()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => ContactUsScreen()));
   }
 
   void _showVersionInfo(BuildContext context) {
@@ -113,14 +118,13 @@ class SettingsScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Sign Out",
+          title: const Text("Sign Out",
               style: TextStyle(color: Color.fromARGB(255, 249, 248, 248))),
-          backgroundColor: Color.fromARGB(255, 2, 116, 106),
-          content: Text(
+          backgroundColor: const Color.fromARGB(255, 2, 116, 106),
+          content: const Text(
             "Are you sure you want to sign out? Signing out will log you out of your account and you'll need to sign in again to access your account.",
             style: TextStyle(color: Color.fromARGB(255, 206, 199, 199)),
           ),
-          
           actions: [
             Row(
               children: [
@@ -128,25 +132,23 @@ class SettingsScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context, false);
                   },
-                  child: Text("Cancel",
-                      style: TextStyle(color: Color.fromARGB(255, 194, 187, 187))),
+                  child: const Text("Cancel",
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 194, 187, 187))),
                 ),
-                
-              TextButton(
-              onPressed: () async {
-                await auth.signout();
-              },
-               child: Text("Sign Out",
-                      style: TextStyle(color: Color.fromARGB(255, 194, 187, 187))),
+                TextButton(
+                  onPressed: () async {
+                    await auth.signout();
+                  },
+                  child: const Text("Sign Out",
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 194, 187, 187))),
                 ),
-           
               ],
             ),
-             
           ],
         );
       },
     );
   }
-   
 }

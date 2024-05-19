@@ -7,7 +7,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 
 class Favorite extends StatefulWidget {
-  const Favorite({Key? key}) : super(key: key);
+  const Favorite({super.key});
 
   @override
   _FavoritePageState createState() => _FavoritePageState();
@@ -32,10 +32,10 @@ class _FavoritePageState extends State<Favorite> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(15),
                 ),
@@ -46,16 +46,16 @@ class _FavoritePageState extends State<Favorite> {
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => MainNavigationBar(),
+                          builder: (context) => const MainNavigationBar(),
                         ),
                       );
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios,
-                      color: const Color.fromARGB(255, 11, 11, 11),
+                      color: Color.fromARGB(255, 11, 11, 11),
                     ),
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Center(
                       child: Text(
                         'Favorites',
@@ -73,7 +73,7 @@ class _FavoritePageState extends State<Favorite> {
             Expanded(
               child: GlowingOverscrollIndicator(
                 axisDirection: AxisDirection.down,
-                color: Color.fromARGB(255, 33, 119, 70),
+                color: const Color.fromARGB(255, 33, 119, 70),
                 child: ValueListenableBuilder(
                   valueListenable: box.listenable(),
                   builder: (context, value, child) {
@@ -85,7 +85,7 @@ class _FavoritePageState extends State<Favorite> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               height: 45,
                             ),
                             Image.asset(
@@ -93,10 +93,10 @@ class _FavoritePageState extends State<Favorite> {
                               height: 300,
                               width: 300,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 25,
                             ),
-                            Padding(
+                            const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 30.0),
                               child: Text(
                                 'No favorite transactions found \nAdd to Favorites for quick access and insights.',
@@ -107,24 +107,24 @@ class _FavoritePageState extends State<Favorite> {
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 40,
                             ),
                             ElevatedButton(
                               onPressed: () {
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
-                                    builder: (context) => MainNavigationBar(),
+                                    builder: (context) =>
+                                        const MainNavigationBar(),
                                   ),
                                 );
                               },
-                              child: const Text('Add to Favorite',style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
                               style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Color.fromARGB(255, 47, 125, 121)),
+                                backgroundColor: MaterialStateProperty.all<
+                                        Color>(
+                                    const Color.fromARGB(255, 47, 125, 121)),
                                 fixedSize: MaterialStateProperty.all<Size>(
-                                  Size(200, 70),
+                                  const Size(200, 70),
                                 ),
                                 shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
@@ -132,6 +132,11 @@ class _FavoritePageState extends State<Favorite> {
                                     borderRadius: BorderRadius.circular(60.0),
                                   ),
                                 ),
+                              ),
+                              child: const Text(
+                                'Add to Favorite',
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 255, 255, 255)),
                               ),
                             ),
                           ],
@@ -156,39 +161,11 @@ class _FavoritePageState extends State<Favorite> {
 
   Widget getList(FinancesData history, int index) {
     if (history.type == 'profile') {
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     }
     return Slidable(
-      actionPane: SlidableDrawerActionPane(),
+      actionPane: const SlidableDrawerActionPane(),
       actionExtentRatio: 0.25,
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => AddScreen(editData: history),
-            ),
-          );
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: 15,
-            right: 15,
-            bottom: 4,
-            top: 4,
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(
-                color: Color.fromARGB(255, 235, 236, 236),
-                width: 3.0,
-              ),
-            ),
-            child: get(index, history),
-          ),
-        ),
-      ),
       secondaryActions: [
         IconSlideAction(
           caption: 'Edit',
@@ -212,6 +189,34 @@ class _FavoritePageState extends State<Favorite> {
           },
         ),
       ],
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddScreen(editData: history),
+            ),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 15,
+            right: 15,
+            bottom: 4,
+            top: 4,
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(
+                color: const Color.fromARGB(255, 235, 236, 236),
+                width: 3.0,
+              ),
+            ),
+            child: get(index, history),
+          ),
+        ),
+      ),
     );
   }
 
@@ -220,10 +225,10 @@ class _FavoritePageState extends State<Favorite> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Confirm Delete",
+          title: const Text("Confirm Delete",
               style: TextStyle(color: Color.fromARGB(255, 249, 248, 248))),
-          backgroundColor: Color.fromARGB(255, 2, 116, 106),
-          content: Text(
+          backgroundColor: const Color.fromARGB(255, 2, 116, 106),
+          content: const Text(
             "Are you sure you want to delete this transaction?",
             style: TextStyle(color: Color.fromARGB(255, 206, 199, 199)),
           ),
@@ -232,7 +237,7 @@ class _FavoritePageState extends State<Favorite> {
               onPressed: () {
                 Navigator.pop(context, false);
               },
-              child: Text("Cancel",
+              child: const Text("Cancel",
                   style: TextStyle(color: Color.fromARGB(255, 194, 187, 187))),
             ),
             TextButton(
@@ -240,7 +245,7 @@ class _FavoritePageState extends State<Favorite> {
                 history.delete();
                 Navigator.pop(context, true);
               },
-              child: Text("Delete", style: TextStyle(color: Colors.red)),
+              child: const Text("Delete", style: TextStyle(color: Colors.red)),
             ),
           ],
         );
@@ -256,7 +261,7 @@ class _FavoritePageState extends State<Favorite> {
       ),
       title: Text(
         history.name,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 17,
           fontWeight: FontWeight.w600,
         ),
@@ -264,8 +269,8 @@ class _FavoritePageState extends State<Favorite> {
       subtitle: Padding(
         padding: const EdgeInsets.only(top: 4),
         child: Text(
-       '${DateFormat('MMMM').format(history.dateTime)} ${history.dateTime.day}, ${history.dateTime.year}' ,
-          style: TextStyle(
+          '${DateFormat('MMMM').format(history.dateTime)} ${history.dateTime.day}, ${history.dateTime.year}',
+          style: const TextStyle(
             fontWeight: FontWeight.w600,
           ),
         ),
