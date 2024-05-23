@@ -1,4 +1,4 @@
-import 'package:budgetmate/features/money_management/data/models/finances_data.dart';
+import 'package:budgetmate/features/finance/data/models/finances_data.dart';
 import 'package:hive/hive.dart';
 
 int totals = 0;

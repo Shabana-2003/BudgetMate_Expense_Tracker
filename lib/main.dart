@@ -1,11 +1,13 @@
-import 'package:budgetmate/features/money_management/data/models/finances_data.dart';
-import 'package:budgetmate/features/money_management/presentation/pages/splash.dart';
+import 'package:budgetmate/features/finance/data/models/finances_data.dart';
+import 'package:budgetmate/features/finance/presentation/pages/splash.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   
@@ -58,9 +60,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+  return StreamProvider<User?>.value(
+      value: FirebaseAuth.instance.authStateChanges(),
+      initialData: null,
+    child: MaterialApp(
       debugShowCheckedModeBanner: false,
       home:SplashScreen(),
+    )
     );
   }
 }
